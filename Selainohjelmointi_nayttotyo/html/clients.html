@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Clients</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <style>
+         .containerMaalit {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+         .wall {
+             width: 45%;
+             height: 300px;
+             background-color: #F8F0E5;
+             border: 0px solid #ccc;
+             padding: 20px;
+             border-radius: 0px;
+             margin-right: 0px;
+         }
+ 
+         .color-palette {
+             background-color: F8F0E5;
+             display: grid;
+             grid-template-columns: repeat(4, 1fr);
+             gap: 10px;
+             margin-top: 0px;
+             margin-left: 100px;
+             margin-right: 100px;
+         }
+ 
+         .color-box {
+             width: 60px;
+             height: 60px;
+             border: 1px solid #ccc;
+             cursor: pointer;
+         }
+ 
+         .color-name {
+             margin-top: 2px;
+         }
+     </style>
+   </head>
+   <body>
+      <!-- section header start -->
+      <div class="header_section">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="logo"><a href="index.html"><img src="images/logo_final1.png"></a></div>
+               </div>
+               <div class="col-md-9">
+                  <div class="menu_text">
+                     <ul>
+                        <li><a href="index.html">ETUSIVU</a></li>
+                        <li><a href="about.html">MEISTÄ</a></li>
+                        <li><a href="services.html">PALVELUT</a></li>
+                        <li><a href="projects.html">GALLERIA</a></li>
+                        <li><a href="contact.html">YHTEYSTIEDOT</a></li>
+                        <li><a href="clients.html">TESTAA SÄVYJÄ</a></li>
+                        <li><a href="#"><img src="images/search-icon.png"></a></li>
+                        <div id="myNav" class="overlay">
+                           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                           <div class="overlay-content">
+                              <a href="index.html">HOME</a>
+                              <a href="about.html">ABOUT</a>
+                              <a href="services.html">SERVICES</a>
+                              <a href="projects.html">PROJECTS</a>
+                              <a href="contact.html">CONTACT US</a>
+                              <a href="client.html">CLIENTS</a>
+                           </div>
+                        </div>
+                        <span  style="font-size:33px;cursor:pointer; color: #ffffff;" onclick="openNav()"><img src="images/toggle.png" class="toggle_menu"></span>
+                  </div>
+                  </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- section header end -->
+      <!-- client section start -->
+         <div class="container">
+            <h1 class="client_text"><strong>SÄVYJEN TESTAUS</strong></h1>
+            <h3>Tässä voit testata sävyjä ja niiden yhteensopivuutta. Klikkaa ensin seinää, jolle haluat sävyä testata ja sitten klikkaa haluamastasi väristä. </h3>
+    <div class="containerMaalit">
+        <div class="wall" id="leftWall">
+            <h2>Seinä 1</h2>
+        </div>
+        <div class="wall" id="rightWall">
+            <h2>Seinä 2</h2>
+        </div>
+    </div>
+    <div class="color-palette" id="colorPalette"></div>
+            <div class="clients_section_2">
+         </div>
+      <!-- client section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <p class="copyright_text">Copyright 2020 All Right Reserved By.<a href="https://html.design"> Free  html Templates</p>
+      </div>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript --> 
+      <script src="js/owl.carousel.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+         const leftWall = document.getElementById('leftWall');
+        const rightWall = document.getElementById('rightWall');
+        const colorPalette = document.getElementById('colorPalette');
+
+        let selectedWall = null;
+
+        // Define the list of colors with names
+        const colors = [
+            { name: 'Fiesta', hex: '#DD4132' },
+            { name: 'Jester Red', hex: '#9E1030' },
+            { name: 'Turmeric', hex: '#FE840E' },
+            { name: 'Living Coral', hex: '#FF6F61' },
+            { name: 'Pink Peacock', hex: '#C62168' },
+            { name: 'Pepper Stem', hex: '#8D9440' },
+            { name: 'Aspen Gold', hex: '#FFD662' },
+            { name: 'Princess Blue', hex: '#00539C' },
+            { name: 'Toffee', hex: '#755139' },
+            { name: 'Mango Mojito', hex: '#D69C2F' },
+            { name: 'Terrarium Moss', hex: '#616247' },
+            { name: 'Sweet Lilac', hex: '#E8B5CE' },
+            { name: 'Soybean', hex: '#D2C29D' },
+            { name: 'Eclipse', hex: '#343148' },
+            { name: 'Sweet Corn', hex: '#F0EAD6' },
+            { name: 'Brown Granite', hex: '#615550' }
+        ];
+
+        // Create color boxes and add them to the color palette
+        colors.forEach(color => {
+            const colorBox = document.createElement('div');
+            colorBox.className = 'color-box';
+            colorBox.style.backgroundColor = color.hex;
+            colorBox.addEventListener('click', () => {
+                if (selectedWall) {
+                    selectedWall.style.backgroundColor = color.hex;
+                }
+            });
+            colorPalette.appendChild(colorBox);
+
+            const colorName = document.createElement('div');
+            colorName.className = 'color-name';
+            colorName.textContent = `${color.name} (${color.hex})`;
+            colorPalette.appendChild(colorName);
+        });
+
+        // Add click event listeners to the walls for wall selection
+        leftWall.addEventListener('click', () => {
+            selectedWall = leftWall;
+            leftWall.classList.add('selected-wall');
+            rightWall.classList.remove('selected-wall');
+        });
+
+        rightWall.addEventListener('click', () => {
+            selectedWall = rightWall;
+            rightWall.classList.add('selected-wall');
+            leftWall.classList.remove('selected-wall');
+        });
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+            openEffect: "none",
+            closeEffect: "none"
+            });
+            
+            $(".zoom").hover(function(){
+            
+            $(this).addClass('transition');
+            }, function(){
+            
+            $(this).removeClass('transition');
+            });
+            });
+            
+      </script> 
+      <script>
+         function openNav() {
+         document.getElementById("myNav").style.width = "100%";
+         }
+         
+         function closeNav() {
+         document.getElementById("myNav").style.width = "0%";
+         }
+      </script>
+   </body>
+</html>
